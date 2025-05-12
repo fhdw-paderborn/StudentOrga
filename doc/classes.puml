@@ -1,0 +1,26 @@
+@startuml Class_Examples
+
+
+class Person {
+    - firstName: String
+    - lastName: String
+    - birth: int
+    + Person(): void
+    + setBirth(int year): void
+    + setFirstName(String name): void
+    + setLastName(String name): void
+    + info(): void
+    + newInput(): void
+}
+
+
+class Student extends Person {
+    - id: long
+    + Student(): void
+}
+
+class Lecturer extends Person {
+    + Lecturer(): void
+}
+
+@enduml
