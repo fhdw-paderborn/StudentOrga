@@ -3,47 +3,33 @@ package model;
 /**
  * This class stores information about a student
  */
-public class Student {
+public class Student extends Person {
 
     private static int zaehler = 1000;
-    
+
     private int id;
-    private int birth;
-    private String firstName, lastName;
+    private String subject;
 
     public Student() {
         this("no", "name", 0);
     }
 
-    public Student(Student andererStudend) {
-        this(andererStudend.firstName, andererStudend.lastName, andererStudend.birth);
+    public Student(String firstName, String lastName) {
+        this(firstName, lastName, 0);
     }
 
     public Student(String firstName, String lastName, int birth) {
+        super(firstName, lastName, birth);
         this.id = Student.zaehler;
-        this.birth = birth;
-        this.firstName = firstName;
-        this.lastName = lastName;
         Student.zaehler++;
     }
 
-    public void setBirth(int birth) {
-        this.birth = birth;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void info() {
-        System.out.printf("Student: %s %s (Geburtsjahr: %d) ID:%d\n", firstName, lastName, birth, id);
-    }
-
-    public boolean equals(Student andererStudend) {
-        return this.id != andererStudend.id;
+    @Override
+    public String info() {
+        return super.info() + "Subject " + subject + " ID:" + id;
     }
 }

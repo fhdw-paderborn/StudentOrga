@@ -1,8 +1,10 @@
 package model;
 
 public class Person {
-    private String firstName, lastName;
-    private int birth;
+
+    protected String firstName, lastName;
+    protected int birth;
+    protected String city;
 
     public Person() {
     }
@@ -28,9 +30,29 @@ public class Person {
     public void setBirth(int birth) {
         this.birth = birth;
     }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
     
-    public void info() {
-        System.out.printf("Person: %s %s (Geburtsjahr: %d)\n", firstName, lastName, birth);
+    public String info() {
+        return firstName + " " + lastName + " Geburtsdatum (" + birth + ") " + " City: " + this.city ;
+    }
+
+    public void newInput() {
+        
+        System.out.print("FirstName: \t");
+        this.setFirstName(System.console().readLine());
+
+        System.out.print("LastName: \t");
+        this.setLastName(System.console().readLine());
+
+        System.out.print("City: \t");
+        this.setCity(System.console().readLine());
+        
+        System.out.print("Birth Year: \t");
+        int year = Integer.valueOf(System.console().readLine());
+        this.setBirth(year);
     }
 
 }
