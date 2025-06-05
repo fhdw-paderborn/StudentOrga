@@ -1,3 +1,24 @@
+# TODO
+ - Abstract Class / Interface
+ - Geschachtelte Klassen
+ - Konstanten und enums
+
+ - Exception Handling
+ - Generics
+ - Collections
+
+ - Lambda / Streams / Options
+ - Dateien / Datenströme
+ - Serialisierung
+ 
+ - HTTP
+----
+
+ - Swing UI für Shapes
+ - Frontend: Electron - Backend Java
+ - Beispiel: Account Savings
+
+
 # Student Organization System
 
 Eine Java-Anwendung zur Verwaltung von Personen, Studenten und Dozenten.

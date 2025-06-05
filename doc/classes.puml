@@ -5,22 +5,25 @@ class Person {
     - firstName: String
     - lastName: String
     - birth: int
-    + Person(): void
     + setBirth(int year): void
     + setFirstName(String name): void
     + setLastName(String name): void
-    + info(): void
+    + info(): String
     + newInput(): void
 }
 
 
 class Student extends Person {
     - id: long
-    + Student(): void
+    + setId(long id): void
+    + info(): String
 }
 
 class Lecturer extends Person {
-    + Lecturer(): void
+    - department: String
+    + info(): String
+    + getDepartment(): String
+    + setDepartment(String department): void
 }
 
 @enduml

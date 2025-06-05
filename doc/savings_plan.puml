@@ -1,0 +1,76 @@
+@startuml
+title Savings Plan Simulation
+
+abstract class Account {
+  - balance: double
+  - interestRate: double
+  + getBalance(): double
+  + deposit(amount: double): void
+  + withdraw(amount: double): boolean
+  + calculateInterest(): double
+}
+
+class CheckingAccount extends Account {
+  - monthlyCost: double
+  + getMonthlyCost(): double
+  + setMonthlyCost(cost: double): void
+  + applyMonthlyCost(): void
+}
+
+class DepositAccount extends Account {
+  - averageStockReturn: double
+  + getAverageStockReturn(): double
+  + setAverageStockReturn(rate: double): void
+}
+
+class SavingsAccount extends Account {
+  - minimumBalance: double
+  + getMinimumBalance(): double
+  + setMinimumBalance(balance: double): void
+}
+
+class SavingsPlan {
+  - account: Account
+  - monthlyContribution: double
+  - duration: int
+  - isFixedDeposit: boolean
+  + SavingsPlan(account: Account)
+  + setMonthlyContribution(amount: double): void
+  + setFixedDeposit(amount: double): void
+  + getDuration(): int
+  + setDuration(months: int): void
+  + simulate(): SimulationResult
+}
+
+class SimulationResult {
+  - finalBalance: double
+  - totalDeposited: double
+  - totalInterest: double
+  - monthlyBalances: List<Double>
+  + getFinalBalance(): double
+  + getTotalDeposited(): double
+  + getTotalInterest(): double
+  + getMonthlyBalances(): List<Double>
+  + printResults(): void
+}
+
+class SavingsPlanSimulator {
+  + createAccount(type: AccountType): Account
+  + createSavingsPlan(account: Account): SavingsPlan
+  + runSimulation(plan: SavingsPlan): SimulationResult
+}
+
+enum AccountType {
+  CHECKING
+  DEPOSIT
+  SAVINGS
+}
+
+SavingsPlan "1" --> "1" Account
+SavingsPlan ..> SimulationResult
+SavingsPlanSimulator ..> AccountType
+SavingsPlanSimulator ..> Account
+SavingsPlanSimulator ..> SavingsPlan
+SavingsPlanSimulator ..> SimulationResult
+
+@enduml
